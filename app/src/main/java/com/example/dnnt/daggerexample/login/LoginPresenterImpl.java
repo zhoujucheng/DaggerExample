@@ -1,5 +1,9 @@
 package com.example.dnnt.daggerexample.login;
 
+import android.util.Log;
+
+import java.util.concurrent.ExecutorService;
+
 import javax.inject.Inject;
 
 /**
@@ -7,8 +11,9 @@ import javax.inject.Inject;
  */
 
 public class LoginPresenterImpl implements LoginContract.LoginPresenter {
-
     private LoginContract.LoginView loginView;
+    @Inject
+    ExecutorService es;
 
     @Inject
     public LoginPresenterImpl(){}
@@ -19,6 +24,13 @@ public class LoginPresenterImpl implements LoginContract.LoginPresenter {
     }
 
     @Override
-    public void login(String user, String password) {}
+    public void login(final String user,final String password) {
+        es.submit(new Runnable() {
+            @Override
+            public void run() {
+                Log.i("login","user: " + user + ", password: " + password);
+            }
+        });
+    }
 
 }
