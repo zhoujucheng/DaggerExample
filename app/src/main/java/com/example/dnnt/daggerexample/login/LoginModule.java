@@ -13,7 +13,7 @@ import dagger.Provides;
 public class LoginModule {
     @Provides
     @ActivityScoped
-    public LoginContract.LoginPresenter providePresenter(LoginPresenterImpl presenter){
+    LoginContract.LoginPresenter providePresenter(LoginPresenterImpl presenter){
         return presenter;
     }
 }

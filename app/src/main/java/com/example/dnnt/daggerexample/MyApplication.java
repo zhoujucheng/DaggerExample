@@ -9,6 +9,7 @@ import com.example.dnnt.daggerexample.dagger2.DaggerAppComponent;
 import java.util.concurrent.ExecutorService;
 
 import javax.inject.Inject;
+import javax.inject.Named;
 
 /**
  * Created by dnnt on 17-12-13.
@@ -18,6 +19,7 @@ public class MyApplication extends Application {
 
     private static final String TAG = "MyApplication";
     @Inject
+    @Named("singleThreadPool")
     ExecutorService es;
     public AppComponent appComponent;
 

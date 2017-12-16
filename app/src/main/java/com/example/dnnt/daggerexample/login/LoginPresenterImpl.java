@@ -7,6 +7,7 @@ import com.example.dnnt.daggerexample.dagger2.scope.ActivityScoped;
 import java.util.concurrent.ExecutorService;
 
 import javax.inject.Inject;
+import javax.inject.Named;
 
 /**
  * Created by dnnt on 17-12-13.
@@ -19,6 +20,7 @@ public class LoginPresenterImpl implements LoginContract.LoginPresenter {
 
     private LoginContract.LoginView loginView;
     @Inject
+    @Named("cacheThreadPool")
     ExecutorService es;
 
     @Inject

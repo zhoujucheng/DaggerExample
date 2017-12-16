@@ -5,6 +5,7 @@ import com.example.dnnt.daggerexample.login.LoginComponent;
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
 
+import javax.inject.Named;
 import javax.inject.Singleton;
 
 import dagger.Module;
@@ -15,10 +16,14 @@ import dagger.Provides;
  */
 
 @Module(subcomponents = {LoginComponent.class})
-public class AppModule {
+class AppModule {
     @Provides
     @Singleton
-    public ExecutorService provideExecutorService(){
-        return Executors.newCachedThreadPool();
-    }
+    @Named("cacheThreadPool")
+    ExecutorService provideExecutorService(){ return Executors.newCachedThreadPool(); }
+
+    @Provides
+    @Singleton
+    @Named("singleThreadPool")
+    ExecutorService provideSingleThreadPool(){ return Executors.newSingleThreadExecutor(); }
 }
