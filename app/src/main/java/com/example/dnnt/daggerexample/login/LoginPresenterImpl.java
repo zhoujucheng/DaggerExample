@@ -11,6 +11,9 @@ import javax.inject.Inject;
  */
 
 public class LoginPresenterImpl implements LoginContract.LoginPresenter {
+
+    private static final String TAG = "LoginPresenterImpl";
+
     private LoginContract.LoginView loginView;
     @Inject
     ExecutorService es;
@@ -31,6 +34,7 @@ public class LoginPresenterImpl implements LoginContract.LoginPresenter {
                 Log.i("login","user: " + user + ", password: " + password);
             }
         });
+        Log.i(TAG,"ExecutorService: " + es.toString());
     }
 
 }

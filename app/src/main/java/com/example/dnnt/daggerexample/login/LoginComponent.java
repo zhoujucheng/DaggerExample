@@ -2,6 +2,8 @@ package com.example.dnnt.daggerexample.login;
 
 import com.example.dnnt.daggerexample.dagger2.AppModule;
 
+import javax.inject.Singleton;
+
 import dagger.Component;
 
 /**
@@ -9,6 +11,7 @@ import dagger.Component;
  */
 
 @Component(modules = {AppModule.class})
+@Singleton
 public interface LoginComponent {
     void inject(LoginActivity loginActivity);
 }
