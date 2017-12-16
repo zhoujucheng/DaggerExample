@@ -2,6 +2,7 @@ package com.example.dnnt.daggerexample.login;
 
 import com.example.dnnt.daggerexample.dagger2.scope.ActivityScoped;
 
+import dagger.Binds;
 import dagger.Module;
 import dagger.Provides;
 
@@ -10,10 +11,7 @@ import dagger.Provides;
  */
 
 @Module
-public class LoginModule {
-    @Provides
-    @ActivityScoped
-    LoginContract.LoginPresenter providePresenter(LoginPresenterImpl presenter){
-        return presenter;
-    }
+public abstract class LoginModule {
+    @Binds
+    abstract LoginContract.LoginPresenter providePresenter(LoginPresenterImpl presenter);
 }
