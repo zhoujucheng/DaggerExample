@@ -1,5 +1,7 @@
 package com.example.dnnt.daggerexample.dagger2;
 
+import android.content.Context;
+
 import com.example.dnnt.daggerexample.MyApplication;
 import com.example.dnnt.daggerexample.login.LoginComponent;
 
@@ -7,6 +9,7 @@ import java.util.concurrent.ExecutorService;
 
 import javax.inject.Singleton;
 
+import dagger.BindsInstance;
 import dagger.Component;
 
 /**
@@ -18,4 +21,11 @@ import dagger.Component;
 public interface AppComponent {
     void inject(MyApplication myApplication);
     LoginComponent.Builder loginComponent();
+
+    @Component.Builder
+    interface Builder {
+        @BindsInstance
+        AppComponent.Builder application(Context context);
+        AppComponent build();
+    }
 }

@@ -27,8 +27,9 @@ public class MyApplication extends Application {
     @Override
     public void onCreate() {
         super.onCreate();
-        appComponent = DaggerAppComponent.builder().build();
+        appComponent = DaggerAppComponent.builder().application(this).build();
         appComponent.inject(this);
         Log.i(TAG,"ExecutorService: " + es.toString());
+        Log.i(TAG, "MyApplication: " + this.toString());
     }
 }

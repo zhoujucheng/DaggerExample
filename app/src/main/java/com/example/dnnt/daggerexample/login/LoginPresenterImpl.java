@@ -1,7 +1,9 @@
 package com.example.dnnt.daggerexample.login;
 
+import android.content.Context;
 import android.util.Log;
 
+import com.example.dnnt.daggerexample.MyApplication;
 import com.example.dnnt.daggerexample.dagger2.qualifier.CacheThreadPool;
 import com.example.dnnt.daggerexample.dagger2.scope.ActivityScoped;
 
@@ -25,6 +27,9 @@ public class LoginPresenterImpl implements LoginContract.LoginPresenter {
     ExecutorService es;
 
     @Inject
+    Context context;
+
+    @Inject
     public LoginPresenterImpl(){}
 
     @Override
@@ -41,6 +46,7 @@ public class LoginPresenterImpl implements LoginContract.LoginPresenter {
             }
         });
         Log.i(TAG,"ExecutorService: " + es.toString());
+        Log.i(TAG,"MyApplication: " + context.toString());
     }
 
 }
