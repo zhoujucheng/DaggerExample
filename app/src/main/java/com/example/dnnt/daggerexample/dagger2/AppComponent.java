@@ -1,6 +1,7 @@
 package com.example.dnnt.daggerexample.dagger2;
 
 import com.example.dnnt.daggerexample.MyApplication;
+import com.example.dnnt.daggerexample.login.LoginComponent;
 
 import java.util.concurrent.ExecutorService;
 
@@ -16,5 +17,5 @@ import dagger.Component;
 @Singleton
 public interface AppComponent {
     void inject(MyApplication myApplication);
-    ExecutorService executorService();
+    LoginComponent.Builder loginComponent();
 }

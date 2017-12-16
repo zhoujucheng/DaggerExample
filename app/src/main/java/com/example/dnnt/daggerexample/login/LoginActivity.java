@@ -19,8 +19,8 @@ public class LoginActivity extends BaseActivity implements LoginContract.LoginVi
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login);
-        DaggerLoginComponent.builder()
-                .appComponent(((MyApplication)getApplicationContext()).appComponent)
+        ((MyApplication)getApplicationContext()).appComponent
+                .loginComponent()
                 .build()
                 .inject(this);
         presenter.attachView(this);
