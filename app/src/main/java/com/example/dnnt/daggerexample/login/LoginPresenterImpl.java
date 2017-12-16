@@ -2,6 +2,7 @@ package com.example.dnnt.daggerexample.login;
 
 import android.util.Log;
 
+import com.example.dnnt.daggerexample.dagger2.qualifier.CacheThreadPool;
 import com.example.dnnt.daggerexample.dagger2.scope.ActivityScoped;
 
 import java.util.concurrent.ExecutorService;
@@ -20,7 +21,7 @@ public class LoginPresenterImpl implements LoginContract.LoginPresenter {
 
     private LoginContract.LoginView loginView;
     @Inject
-    @Named("cacheThreadPool")
+    @CacheThreadPool
     ExecutorService es;
 
     @Inject

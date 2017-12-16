@@ -5,6 +5,7 @@ import android.util.Log;
 
 import com.example.dnnt.daggerexample.dagger2.AppComponent;
 import com.example.dnnt.daggerexample.dagger2.DaggerAppComponent;
+import com.example.dnnt.daggerexample.dagger2.qualifier.SingleThreadPool;
 
 import java.util.concurrent.ExecutorService;
 
@@ -19,7 +20,7 @@ public class MyApplication extends Application {
 
     private static final String TAG = "MyApplication";
     @Inject
-    @Named("singleThreadPool")
+    @SingleThreadPool
     ExecutorService es;
     public AppComponent appComponent;
 

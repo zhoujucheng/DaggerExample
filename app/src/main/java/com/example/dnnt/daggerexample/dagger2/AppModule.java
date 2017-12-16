@@ -1,5 +1,7 @@
 package com.example.dnnt.daggerexample.dagger2;
 
+import com.example.dnnt.daggerexample.dagger2.qualifier.CacheThreadPool;
+import com.example.dnnt.daggerexample.dagger2.qualifier.SingleThreadPool;
 import com.example.dnnt.daggerexample.login.LoginComponent;
 
 import java.util.concurrent.ExecutorService;
@@ -19,11 +21,11 @@ import dagger.Provides;
 class AppModule {
     @Provides
     @Singleton
-    @Named("cacheThreadPool")
+    @CacheThreadPool
     ExecutorService provideExecutorService(){ return Executors.newCachedThreadPool(); }
 
     @Provides
     @Singleton
-    @Named("singleThreadPool")
+    @SingleThreadPool
     ExecutorService provideSingleThreadPool(){ return Executors.newSingleThreadExecutor(); }
 }
