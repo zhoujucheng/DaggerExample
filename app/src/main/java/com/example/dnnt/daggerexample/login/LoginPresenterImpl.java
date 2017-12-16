@@ -2,6 +2,8 @@ package com.example.dnnt.daggerexample.login;
 
 import android.util.Log;
 
+import com.example.dnnt.daggerexample.dagger2.scope.ActivityScoped;
+
 import java.util.concurrent.ExecutorService;
 
 import javax.inject.Inject;
@@ -10,6 +12,7 @@ import javax.inject.Inject;
  * Created by dnnt on 17-12-13.
  */
 
+@ActivityScoped
 public class LoginPresenterImpl implements LoginContract.LoginPresenter {
 
     private static final String TAG = "LoginPresenterImpl";

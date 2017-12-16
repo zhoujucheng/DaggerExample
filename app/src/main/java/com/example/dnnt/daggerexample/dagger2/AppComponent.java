@@ -2,6 +2,8 @@ package com.example.dnnt.daggerexample.dagger2;
 
 import com.example.dnnt.daggerexample.MyApplication;
 
+import java.util.concurrent.ExecutorService;
+
 import javax.inject.Singleton;
 
 import dagger.Component;
@@ -14,4 +16,5 @@ import dagger.Component;
 @Singleton
 public interface AppComponent {
     void inject(MyApplication myApplication);
+    ExecutorService executorService();
 }
